@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Beer>
+@{
+
+}
+
+<div class="container" ng-app="app" ng-controller="BeerController">
+
+    <pre>{{ model | json }}</pre>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Color</th>
+                <th>Have tasted</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="beer in model">
+                <td>{{ beer.id }}</td>
+                <td>{{ beer.name }}</td>
+                <td>{{ beer.color }}</td>
+                <td>
+                    <input type="checkbox" class="form-check-input" disabled ng-model="beer.hasTried" />
+                </td>
+                <td><a href="@Url.Action("Delete", "Beer")/{{beer.id}}"><span style="color: red">X</span></a></td>
+            </tr>
+
+        <tr ng-if="states.showBeerForm">
+            <td></td>
+            <td>
+                <input type="text" placeholder="Name..." class="form-control" ng-model="new.beer.name"/>
+            </td>
+            <td>
+                <input type="text" placeholder="Color..." class="form-control" ng-model="new.beer.color"/>
+            </td>
+            <td>
+                <input type="checkbox" class="form-check-input" id="haveTriedCheckbox" ng-model="new.beer.hasTried">
+            </td>
+            <td>
+                <button class="btn btn-primary" type="button">Add</button>
+                <button class="btn" type="button" ng-click="toggleAddBeerForm()">Reset</button>
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="5">{{ new.beer }}</td>
+        </tr>
+        </tbody>
+
+    </table>
+
+    <button ng-if="!states.showBeerForm" type="button" ng-click="toggleAddBeerForm()" class="btn btn-primary">Add beer</button>
+
+</div>

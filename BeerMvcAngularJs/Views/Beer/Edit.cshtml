@@ -1,0 +1,30 @@
+﻿@model Beer
+@{
+}
+
+<form>
+    <div class="row">
+        <div class="col-xs-12 form-group">
+            <label for="beerId">Id:</label>
+            <input id="beerId" readonly="readonly" value="@Model.Id" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 form-group">
+            <label for="beerName">Name:</label>
+            <input id="beerName" value="@Model.Name" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 form-group">
+            <label for="beerColor">Color:</label>
+            <input id="beerColor" value="@Model.Color" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 form-group">
+            <label for="beerHasTried">Has tried:</label>
+            <input type="checkbox" id="beerHasTried" value="@Model.HasTried" class="form-check-input" />
+        </div>
+    </div>
+</form>
